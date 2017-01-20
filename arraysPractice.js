@@ -60,7 +60,20 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
   //Code Here
 
+// function evenFinder(nums){
+//   myArr = [];
+//   for(var i=0;i<nums.length;i++){
+//     if(nums[i] % 2 === 0){
+//       myArr.push(nums[i]);
+//     }
+//   }
+//   console.log(myArr);
+//   return myArr;
+// }
 
+function evenFinder(nums){
+  return nums.filter(item => item % 2 === 0);
+}
 //Next problem
 
 
@@ -71,7 +84,13 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 
   //Code Here
-
+function divider(numbersArray){
+  let evens = numbersArray.filter(item => item % 2 === 0);
+  let odds = numbersArray.filter(item => item % 2 === 1);
+  let comboArr = [evens, odds];
+  console.log(comboArr);
+  return comboArr;
+}
 
 //Next Problem
 
@@ -85,6 +104,18 @@ var getRandomArbitrary = function() {
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
+function finder(arr){
+  var rand = getRandomArbitrary();
+  for(var i = 0;i < arr.length; i++){
+    if(arr[i] === rand){
+      return true;
+    } else if (i === arr.length && arr[i] !== rand){
+      return false;
+    }
+  }
+  return false;
+}
+
 
   //Code Here
 
@@ -97,7 +128,14 @@ var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
+function reverse(str){
+  let splits = str.split('');
+  splits = splits.reverse();
+  splits = splits.join('');
+  return splits;
+}
 
+// reverse('this is my sentence');
 
 //Next Problem
 
@@ -123,6 +161,27 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
+function removeItem(myGroceryList, removeItem){
+  if(!myGroceryList){
+    return [];
+  } else if(myGroceryList.indexOf(removeItem) !== -1){
+    myGroceryList.splice(myGroceryList.indexOf(removeItem),1);
+    return myGroceryList;
+  } else {
+    return myGroceryList;
+  }
+}
+
+function addItem(myGroceryList, item){
+  if(!myGroceryList){
+    return [];
+  } else if(myGroceryList.indexOf(item) === -1){
+    myGroceryList.push(item);
+    return myGroceryList;
+  } else {
+    return myGroceryList;
+  }
+}
 
 
 //Next Problem
@@ -132,7 +191,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
-
+function maker(){
+  let newArr = [];
+  for(let i = 1;i<=215;i++){
+    newArr.push(i);
+  }
+  return newArr;
+}
 
 
 //Next Problem
@@ -143,7 +208,9 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
-
+function addTen(numbers){
+  return numbers.map(item => +item + 10);
+}
 
 
 //Next Problem
